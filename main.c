@@ -18,24 +18,24 @@ extern char end[]; // first address after kernel loaded from ELF file
 int
 main(void)
 {
-  kinit1(end, P2V(4*1024*1024)); // phys page allocator
-  kvmalloc();      // kernel page table
-  mpinit();        // detect other processors
-  lapicinit();     // interrupt controller
-  seginit();       // segment descriptors
-  picinit();       // disable pic
-  ioapicinit();    // another interrupt controller
-  consoleinit();   // console hardware
-  uartinit();      // serial port
-  pinit();         // process table
-  tvinit();        // trap vectors
-  binit();         // buffer cache
-  fileinit();      // file table
-  ideinit();       // disk 
-  startothers();   // start other processors
-  kinit2(P2V(4*1024*1024), P2V(PHYSTOP)); // must come after startothers()
-  userinit();      // first user process
-  mpmain();        // finish this processor's setup
+  cprintf("calling kinit1\n");      kinit1(end, P2V(4*1024*1024)); // phys page allocator
+  cprintf("calling kvmalloc\n");    kvmalloc();      // kernel page table
+  cprintf("calling mpinit\n");      mpinit();        // detect other processors
+  cprintf("calling lapicinit\n");   lapicinit();     // interrupt controller
+  cprintf("calling seginit\n");     seginit();       // segment descriptors
+  cprintf("calling picinit\n");     picinit();       // disable pic
+  cprintf("calling ioapicinit\n");  ioapicinit();    // another interrupt controller
+  cprintf("calling consoleinit\n"); consoleinit();   // console hardware
+  cprintf("calling uartinit\n");    uartinit();      // serial port
+  cprintf("calling pinit\n");       pinit();         // process table
+  cprintf("calling tvinit\n");      tvinit();        // trap vectors
+  cprintf("calling binit\n");       binit();         // buffer cache
+  cprintf("calling fileinit\n");    fileinit();      // file table
+  cprintf("calling ideinit\n");     ideinit();       // disk 
+  cprintf("calling startothers\n"); startothers();   // start other processors
+  cprintf("calling kinit2\n");      kinit2(P2V(4*1024*1024), P2V(PHYSTOP)); // must come after startothers()
+  cprintf("calling userinit\n");    userinit();      // first user process
+  cprintf("calling mpmain\n");      mpmain();        // finish this processor's setup
 }
 
 // Other CPUs jump here from entryother.S.
