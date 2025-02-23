@@ -17,3 +17,8 @@ jobs:
       run: make CFLAGS="-w -m32  -fno-stack-protector"
     - name: done
       run: echo "Done!!!"
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: zip file
+        path: ${{ github.workspace }}/build.zip
