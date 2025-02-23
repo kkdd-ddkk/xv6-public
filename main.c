@@ -6,6 +6,10 @@
 #include "proc.h"
 #include "x86.h"
 
+#include "stat.h"
+#include "user.h"
+
+
 static void startothers(void);
 static void mpmain(void)  __attribute__((noreturn));
 extern pde_t *kpgdir;
