@@ -54,5 +54,16 @@ simulator and run "make qemu".
 -----------------------------------
 
 
-Labs:
+# Labs
+
 https://pdos.csail.mit.edu/6.S081/2024/labs/util.html
+
+# Books
+
+## riscv version
+
+https://xv6-guide.github.io/xv6-riscv-book/
+
+## x86 version
+
+https://pdos.csail.mit.edu/6.828/2012/xv6/book-rev7.pdf
